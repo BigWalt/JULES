@@ -1,0 +1,101 @@
+###############################################################################
+## Families for Met Office Linux systems
+###############################################################################
+# Family for Met Office Linux jobs
+    [[METO_LINUX]]
+        inherit = None, LINUX
+        pre-script = ". /usr/local/bin/prg_ifort-12.0 ; ulimit -s unlimited"
+        [[[environment]]]
+            PATH = /home/h01/frum/mpi/mpich2-1.4.1/ifort-12.0/bin:$PATH
+            
+# Family for Linux build jobs
+    [[METO_LINUX_BUILD]]
+        inherit = None, EXTRACT_AND_BUILD, METO_LINUX
+        [[[environment]]]
+            ROSE_TASK_N_JOBS = 4
+
+# Family for Met Office Linux compute jobs
+    [[METO_LINUX_COMPUTE]]
+        inherit = None, METO_LINUX, COMPUTE
+        [[[remote]]]
+            host = $(rose host-select linux)
+
+
+###############################################################################
+## Build jobs
+###############################################################################
+    [[fcm_make_nompi]]
+        inherit = METO_LINUX_BUILD
+        [[[environment]]]
+            JULES_PLATFORM = meto-linux-intel-nompi
+            JULES_BUILD = normal
+            JULES_OMP = noomp
+            
+    [[fcm_make_mpi]]
+        inherit = METO_LINUX_BUILD
+        [[[environment]]]
+            JULES_PLATFORM = meto-linux-intel-mpi
+            JULES_BUILD = normal
+            JULES_OMP = noomp
+            
+            
+###############################################################################
+## Compute jobs
+###############################################################################
+# Family for Fluxnet jobs on Met Office Linux
+    [[METO_LINUX_FLUXNET]]
+        inherit = METO_LINUX_COMPUTE
+        [[[environment]]]
+            BUILD_NAME = fcm_make_nompi
+            MPI_NUM_TASKS = 1
+            OMP_NUM_THREADS = 1
+            NPROC = $MPI_NUM_TASKS
+            
+    [[fluxnet_bondville]]
+        inherit = FLUXNET, METO_LINUX_FLUXNET
+        
+    [[fluxnet_elsaler]]
+        inherit = FLUXNET, METO_LINUX_FLUXNET
+        
+    [[fluxnet_fortpeck]]
+        inherit = FLUXNET, METO_LINUX_FLUXNET
+        
+    [[fluxnet_harvard]]
+        inherit = FLUXNET, METO_LINUX_FLUXNET
+        
+    [[fluxnet_hyytiala]]
+        inherit = FLUXNET, METO_LINUX_FLUXNET
+        
+    [[fluxnet_kaamanen]]
+        inherit = FLUXNET, METO_LINUX_FLUXNET
+        
+    [[fluxnet_morganmon]]
+        inherit = FLUXNET, METO_LINUX_FLUXNET
+        
+    [[fluxnet_santa67]]
+        inherit = FLUXNET, METO_LINUX_FLUXNET
+        
+    [[fluxnet_santa77]]
+        inherit = FLUXNET, METO_LINUX_FLUXNET
+        
+    [[fluxnet_tharandt]]
+        inherit = FLUXNET, METO_LINUX_FLUXNET
+        
+# Family for GSWP2 jobs on Met Office Linux
+    [[METO_LINUX_GSWP2]]
+        inherit = METO_LINUX_COMPUTE
+        pre-script = gen_gswp2_drive_file
+        [[[environment]]]
+            BUILD_NAME = fcm_make_mpi
+            MPI_NUM_TASKS = 4
+            OMP_NUM_THREADS = 1
+            NPROC = $MPI_NUM_TASKS
+
+    [[gswp2_carbon_only]]
+        inherit = GSWP2, METO_LINUX_GSWP2
+        
+    [[gswp2_closures]]
+        inherit = GSWP2, METO_LINUX_GSWP2
+        
+    [[gswp2_triff]]
+        inherit = GSWP2, METO_LINUX_GSWP2

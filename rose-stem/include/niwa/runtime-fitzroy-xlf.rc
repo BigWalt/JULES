@@ -1,0 +1,373 @@
+###############################################################################
+## Common classes
+###############################################################################
+
+# Note: Building JULES with XL Fortran v15.1.3.2 leads to runtime errors,
+#       use XL Fortran v14.1.0.12 instead
+    [[NIWA_FITZROY]]
+        env-script = """
+                        module purge
+                        module load xlf/v14.1.0.12
+                        module load xlcpp/v13.1.3.1
+                     """
+        [[[remote]]]
+            host = $(rose host-select fitzroy)
+        [[[environment]]]
+            PATH = /opt/niwa/perl/AIX/5.20.0/bin:$PATH
+
+    [[NIWA_FITZROY_AT]]
+        [[[job]]]
+            batch system = at
+
+    [[NIWA_FITZROY_LL]]
+        [[[job]]]
+            batch system = loadleveler
+            execution time limit = PT30M
+        [[[directives]]]
+            account_no       = NIWA00001
+            job_name         = jules_test
+            class            = General
+            job_type         = parallel
+            notification     = error
+            notify_user      = rose_stem
+            resources        = ConsumableMemory(1Gb)
+            network.MPI      = "sn_all, shared, US"
+            shell            = /usr/bin/env bash
+
+# Fitzroy node setup
+# Single OpenMP thread
+    [[NIWA_FITZROY_PARALLEL_THREADS_1]]
+        [[[environment]]]
+            OMP_NUM_THREADS = 1
+
+# Single task
+    [[NIWA_FITZROY_PARALLEL_TASKS_1]]
+        [[[directives]]]
+            node             = 1
+            total_tasks      = 1
+            node_usage       = shared
+
+# 32 tasks
+    [[NIWA_FITZROY_PARALLEL_TASKS_32]]
+        [[[directives]]]
+            node             = 1
+            total_tasks      = 32
+            node_usage       = not_shared
+
+###############################################################################
+## Extract and build jobs
+###############################################################################
+
+    [[NIWA_FITZROY_BUILD]]
+        inherit = NIWA_FITZROY, NIWA_FITZROY_AT, BUILD
+        [[[environment]]]
+            ROSE_TASK_N_JOBS = 6
+            JULES_PLATFORM = niwa-pwr6-xlf
+
+# Debug build without OpenMP
+#   Extract on Linux
+    [[fcm_make_niwa_fitzroy_xlf_debug_noomp]]
+        inherit = NIWA_FITZROY_EXTRACT
+        [[[environment]]]
+            JULES_BUILD = debug
+            JULES_OMP = noomp
+
+#   Build on Fitzroy
+    [[fcm_make2_niwa_fitzroy_xlf_debug_noomp]]
+        inherit = NIWA_FITZROY_BUILD
+        [[[environment]]]
+            JULES_BUILD = debug
+            JULES_OMP = noomp
+
+# Normal build with OpenMP
+#   Extract on Linux
+    [[fcm_make_niwa_fitzroy_xlf_omp]]
+        inherit = NIWA_FITZROY_EXTRACT
+        [[[environment]]]
+            JULES_BUILD = normal
+            JULES_OMP = omp
+
+#   Build on Fitzroy
+    [[fcm_make2_niwa_fitzroy_xlf_omp]]
+        inherit = NIWA_FITZROY_BUILD
+        [[[environment]]]
+            JULES_BUILD = normal
+            JULES_OMP = omp
+
+###############################################################################
+## Compute jobs
+###############################################################################
+
+# Family for Loobos jobs on Fitzroy
+    [[NIWA_FITZROY_LOOBOS]]
+        inherit = NIWA_FITZROY, NIWA_FITZROY_LL, NIWA_FITZROY_PARALLEL_TASKS_1, NIWA_FITZROY_PARALLEL_THREADS_1, LOOBOS, COMPUTE
+        [[[environment]]]
+            BUILD_NAME = fcm_make_niwa_fitzroy_xlf_debug_noomp
+            LOOBOS_INSTALL_DIR = /oper/admin/um_fcm/jules/benchmarking-data/loobos
+
+    [[niwa_fitzroy_xlf_loobos_gl4]]
+        inherit = NIWA_FITZROY_LOOBOS
+        [[[environment]]]
+            ROSE_TASK_APP = loobos_gl4
+
+    [[niwa_fitzroy_xlf_loobos_gl7]]
+        inherit = NIWA_FITZROY_LOOBOS
+        [[[environment]]]
+            ROSE_TASK_APP = loobos_gl7
+
+    [[niwa_fitzroy_xlf_loobos_gl8]]
+        inherit = NIWA_FITZROY_LOOBOS
+        [[[environment]]]
+            ROSE_TASK_APP = loobos_gl8
+
+    [[niwa_fitzroy_xlf_loobos_euro4]]
+        inherit = NIWA_FITZROY_LOOBOS
+        [[[environment]]]
+            ROSE_TASK_APP = loobos_euro4
+
+    [[niwa_fitzroy_xlf_loobos_forecast]]
+        inherit = NIWA_FITZROY_LOOBOS
+        [[[environment]]]
+            ROSE_TASK_APP = loobos_forecast
+
+    [[niwa_fitzroy_xlf_loobos_ukv]]
+        inherit = NIWA_FITZROY_LOOBOS
+        [[[environment]]]
+            ROSE_TASK_APP = loobos_ukv
+
+    [[niwa_fitzroy_xlf_loobos_trif_spinup]]
+        inherit = NIWA_FITZROY_LOOBOS
+        [[[environment]]]
+            ROSE_TASK_APP = loobos_trif_spinup
+
+    [[niwa_fitzroy_xlf_loobos_trif]]
+        inherit = NIWA_FITZROY_LOOBOS
+        [[[environment]]]
+            ROSE_TASK_APP = loobos_trif
+            DUMP_FILE = ../niwa_fitzroy_xlf_loobos_trif_spinup/output/niwa_fitzroy_xlf_loobos_trif_spinup.dump.19971231.82800.nc
+
+    [[niwa_fitzroy_xlf_loobos_julesc_spinup]]
+        inherit = NIWA_FITZROY_LOOBOS
+        [[[environment]]]
+            ROSE_TASK_APP = loobos_julesc_spinup
+
+    [[niwa_fitzroy_xlf_loobos_julesc]]
+        inherit = NIWA_FITZROY_LOOBOS
+        [[[environment]]]
+            ROSE_TASK_APP = loobos_julesc
+            DUMP_FILE = ../niwa_fitzroy_xlf_loobos_julesc_spinup/output/niwa_fitzroy_xlf_loobos_julesc_spinup.dump.19971231.82800.nc
+
+    [[niwa_fitzroy_xlf_loobos_jules_c1p1]]
+        inherit = NIWA_FITZROY_LOOBOS
+        [[[environment]]]
+            ROSE_TASK_APP = loobos_jules_c1p1
+            DUMP_FILE = ../niwa_fitzroy_xlf_loobos_julesc_spinup/output/niwa_fitzroy_xlf_loobos_julesc_spinup.dump.19971231.82800.nc
+            
+    [[niwa_fitzroy_xlf_loobos_jules_c1p1_fire]]
+        inherit = NIWA_FITZROY_LOOBOS
+        [[[environment]]]
+            ROSE_TASK_APP = loobos_jules_c1p1_fire
+            DUMP_FILE = ../niwa_fitzroy_xlf_loobos_julesc_spinup/output/niwa_fitzroy_xlf_loobos_julesc_spinup.dump.19971231.82800.nc
+
+    [[niwa_fitzroy_xlf_loobos_jules_layeredcn_spinup]]
+        inherit = NIWA_FITZROY_LOOBOS
+        [[[environment]]]
+            ROSE_TASK_APP = loobos_jules_layeredcn_spinup
+
+    [[niwa_fitzroy_xlf_loobos_jules_layeredcn]]
+        inherit = NIWA_FITZROY_LOOBOS
+        [[[environment]]]
+            ROSE_TASK_APP = loobos_jules_layeredcn
+            DUMP_FILE = ../niwa_fitzroy_xlf_loobos_jules_layeredcn_spinup/output/niwa_fitzroy_xlf_loobos_jules_layeredcn_spinup.dump.19971231.82800.nc
+
+    [[niwa_fitzroy_xlf_loobos_jules_cn_spinup]]
+        inherit = NIWA_FITZROY_LOOBOS
+        [[[environment]]]
+            ROSE_TASK_APP = loobos_jules_cn_spinup
+
+    [[niwa_fitzroy_xlf_loobos_jules_cn]]
+        inherit = NIWA_FITZROY_LOOBOS
+        [[[environment]]]
+            ROSE_TASK_APP = loobos_jules_cn
+            DUMP_FILE = ../niwa_fitzroy_xlf_loobos_jules_cn_spinup/output/niwa_fitzroy_xlf_loobos_jules_cn_spinup.dump.19971231.82800.nc
+
+    [[niwa_fitzroy_xlf_loobos_jules_es_1p6_spinup]]
+        inherit = NIWA_FITZROY_LOOBOS
+        [[[environment]]]
+            ROSE_TASK_APP = loobos_jules_es_1p6_spinup
+
+    [[niwa_fitzroy_xlf_loobos_jules_es_1p6]]
+        inherit = NIWA_FITZROY_LOOBOS
+        [[[environment]]]
+            ROSE_TASK_APP = loobos_jules_es_1p6
+            DUMP_FILE = ../niwa_fitzroy_xlf_loobos_jules_es_1p6_spinup/output/niwa_fitzroy_xlf_loobos_jules_es_1p6_spinup.dump.19971231.82800.nc
+
+    [[niwa_fitzroy_xlf_loobos_crops]]
+        inherit = NIWA_FITZROY_LOOBOS
+        [[[environment]]]
+            ROSE_TASK_APP = loobos_crops
+
+    [[niwa_fitzroy_xlf_loobos_prescribe_sthuf]]
+        inherit = NIWA_FITZROY_LOOBOS
+        [[[environment]]]
+            ROSE_TASK_APP = loobos_prescribe_sthuf
+
+    [[niwa_fitzroy_xlf_loobos_irrig]]
+        inherit = NIWA_FITZROY_LOOBOS
+        [[[environment]]]
+            ROSE_TASK_APP = loobos_irrig
+
+    [[niwa_fitzroy_xlf_loobos_fire_spinup]]
+        inherit = NIWA_FITZROY_LOOBOS
+        [[[environment]]]
+            ROSE_TASK_APP = loobos_fire_spinup
+
+    [[niwa_fitzroy_xlf_loobos_fire]]
+        inherit = NIWA_FITZROY_LOOBOS
+        [[[environment]]]
+            ROSE_TASK_APP = loobos_fire
+            DUMP_FILE = ../niwa_fitzroy_xlf_loobos_fire_spinup/output/niwa_fitzroy_xlf_loobos_fire_spinup.dump.19971231.82800.nc
+
+    [[niwa_fitzroy_xlf_loobos_daily_disagg]]
+        inherit = NIWA_FITZROY_LOOBOS
+        [[[environment]]]
+            ROSE_TASK_APP = loobos_daily_disagg
+
+    [[niwa_fitzroy_xlf_loobos_crm1_traitF]]
+        inherit = NIWA_FITZROY_LOOBOS
+        [[[environment]]]
+            ROSE_TASK_APP = loobos_crm1_traitF
+
+    [[niwa_fitzroy_xlf_loobos_crm2_traitF]]
+        inherit = NIWA_FITZROY_LOOBOS
+        [[[environment]]]
+            ROSE_TASK_APP = loobos_crm2_traitF
+
+    [[niwa_fitzroy_xlf_loobos_crm3_traitF]]
+        inherit = NIWA_FITZROY_LOOBOS
+        [[[environment]]]
+            ROSE_TASK_APP = loobos_crm3_traitF
+
+    [[niwa_fitzroy_xlf_loobos_crm4_traitF]]
+        inherit = NIWA_FITZROY_LOOBOS
+        [[[environment]]]
+            ROSE_TASK_APP = loobos_crm4_traitF
+
+    [[niwa_fitzroy_xlf_loobos_crm5_traitF]]
+        inherit = NIWA_FITZROY_LOOBOS
+        [[[environment]]]
+            ROSE_TASK_APP = loobos_crm5_traitF
+
+    [[niwa_fitzroy_xlf_loobos_crm6_traitF]]
+        inherit = NIWA_FITZROY_LOOBOS
+        [[[environment]]]
+            ROSE_TASK_APP = loobos_crm6_traitF
+
+    [[niwa_fitzroy_xlf_loobos_crm6_traitT]]
+        inherit = NIWA_FITZROY_LOOBOS
+        [[[environment]]]
+            ROSE_TASK_APP = loobos_crm6_traitT
+
+    [[niwa_fitzroy_xlf_loobos_crm6_traitF_srfT]]
+        inherit = NIWA_FITZROY_LOOBOS
+        [[[environment]]]
+            ROSE_TASK_APP = loobos_crm6_traitF_srfT
+
+    [[NIWA_FITZROY_GSWP2]]
+        inherit = NIWA_FITZROY, NIWA_FITZROY_LL, NIWA_FITZROY_PARALLEL_TASKS_1, NIWA_FITZROY_PARALLEL_THREADS_1, GSWP2, COMPUTE
+        pre-script = gen_gswp2_drive_file
+        [[[environment]]]
+            BUILD_NAME = fcm_make_niwa_fitzroy_xlf_omp
+            GSWP2_INSTALL_DIR = /oper/admin/um_fcm/jules/benchmarking-data/gswp2
+
+    [[NIWA_FITZROY_ERAINT]]
+        inherit = NIWA_FITZROY, NIWA_FITZROY_LL, NIWA_FITZROY_PARALLEL_TASKS_1, NIWA_FITZROY_PARALLEL_THREADS_1, ERAINT, COMPUTE
+        [[[environment]]]
+            BUILD_NAME = fcm_make_niwa_fitzroy_xlf_omp
+            ERAINT_INSTALL_DIR = /oper/admin/um_fcm/jules/benchmarking-data/eraint
+
+    [[NIWA_FITZROY_IMOGEN]]
+        inherit = NIWA_FITZROY, NIWA_FITZROY_LL, NIWA_FITZROY_PARALLEL_TASKS_1, NIWA_FITZROY_PARALLEL_THREADS_1, IMOGEN, COMPUTE
+        [[[environment]]]
+            BUILD_NAME = fcm_make_niwa_fitzroy_xlf_omp
+            IMOGEN_INSTALL_DIR = /oper/admin/um_fcm/jules/benchmarking-data/imogen
+
+    [[niwa_fitzroy_xlf_gswp2_rivers]]
+        inherit = NIWA_FITZROY_GSWP2
+        [[[environment]]]
+            ROSE_TASK_APP = gswp2_rivers
+
+    [[niwa_fitzroy_xlf_gswp2_rivers_spinup]]
+        inherit = NIWA_FITZROY_GSWP2
+        [[[environment]]]
+            ROSE_TASK_APP = gswp2_rivers_spinup
+
+    [[niwa_fitzroy_xlf_gswp2_rivers_restart]]
+        inherit = NIWA_FITZROY_GSWP2
+        [[[environment]]]
+            ROSE_TASK_APP = gswp2_rivers_restart
+            DUMP_FILE = ../niwa_fitzroy_xlf_gswp2_rivers_spinup/output/niwa_fitzroy_xlf_gswp2_rivers_spinup.dump.19820701.10800.nc
+
+    [[niwa_fitzroy_xlf_gswp2_trip]]
+        inherit = NIWA_FITZROY_GSWP2
+        [[[environment]]]
+            ROSE_TASK_APP = gswp2_trip
+
+    [[niwa_fitzroy_xlf_gswp2_trip_spinup]]
+        inherit = NIWA_FITZROY_GSWP2
+        [[[environment]]]
+            ROSE_TASK_APP = gswp2_trip_spinup
+
+    [[niwa_fitzroy_xlf_gswp2_trip_restart]]
+        inherit = NIWA_FITZROY_GSWP2
+        [[[environment]]]
+            ROSE_TASK_APP = gswp2_trip_restart
+            DUMP_FILE = ../niwa_fitzroy_xlf_gswp2_trip_spinup/output/niwa_fitzroy_xlf_gswp2_trip_spinup.dump.19820701.10800.nc
+
+    [[niwa_fitzroy_xlf_gswp2_closures]]
+        inherit = NIWA_FITZROY_GSWP2
+        [[[environment]]]
+            ROSE_TASK_APP = gswp2_closures
+
+    [[niwa_fitzroy_xlf_gswp2_euro4]]
+        inherit = NIWA_FITZROY_GSWP2
+        [[[environment]]]
+            ROSE_TASK_APP = gswp2_euro4
+
+    [[niwa_fitzroy_xlf_gswp2_gl4]]
+        inherit = NIWA_FITZROY_GSWP2
+        [[[environment]]]
+            ROSE_TASK_APP = gswp2_gl4
+
+    [[niwa_fitzroy_xlf_gswp2_gl7]]
+        inherit = NIWA_FITZROY_GSWP2
+        [[[environment]]]
+            ROSE_TASK_APP = gswp2_gl7
+
+    [[niwa_fitzroy_xlf_gswp2_ukv]]
+        inherit = NIWA_FITZROY_GSWP2
+        [[[environment]]]
+            ROSE_TASK_APP = gswp2_ukv
+
+    [[niwa_fitzroy_xlf_eraint_rfm_2ddata]]
+        inherit = NIWA_FITZROY_ERAINT
+        [[[environment]]]
+            ROSE_TASK_APP = eraint_rfm_2ddata
+            DUMP_FILE = $ERAINT_INSTALL_DIR/brahma_eraint.dump.19951031.0.nc
+
+    [[niwa_fitzroy_xlf_eraint_trip_2ddata]]
+        inherit = NIWA_FITZROY_ERAINT
+        [[[environment]]]
+            ROSE_TASK_APP = eraint_trip_2ddata
+	    DUMP_FILE = $ERAINT_INSTALL_DIR/brahma_eraint.dump.19951031.0.nc
+
+    [[niwa_fitzroy_xlf_imogen_layeredc_spinup]]
+        inherit = NIWA_FITZROY_IMOGEN
+        [[[environment]]]
+            ROSE_TASK_APP = imogen_layeredc_spinup
+
+    [[niwa_fitzroy_xlf_imogen_layeredc]]
+        inherit = NIWA_FITZROY_IMOGEN
+        [[[environment]]]
+            ROSE_TASK_APP = imogen_layeredc
+	    DUMP_FILE = ../niwa_fitzroy_xlf_imogen_layeredc_spinup/output/imogen_layeredc_spinup.dump.18650101.0.nc

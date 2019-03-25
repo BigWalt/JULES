@@ -1,0 +1,27 @@
+###############################################################################
+## Import site-specific graphs for build and run
+##
+## These files should set the name_graphs variable with the expected keys
+##
+## NOTE: We use separate files so that, for instance, the meto/graph.rc could
+##       define the GSWP2 jobs to run on the Cray and pull the results back
+##       into the correct directory
+###############################################################################
+{%- if SITE == 'meto' %}
+%include 'include/meto/graph.rc'
+{%- elif SITE == 'vm' %}
+%include 'include/vm/graph.rc'
+{%- elif SITE == 'jasmin' %}
+%include 'include/jasmin/graph.rc'
+{%- endif %}
+
+# Configure the available groups as keys into name_graphs
+{%- set groups = {
+        "all" : ["fluxnet", "gswp2"],
+        "fluxnet" : ["fluxnet_bondville", "fluxnet_elsaler", "fluxnet_fortpeck",
+                     "fluxnet_harvard", "fluxnet_hyytiala", "fluxnet_kaamanen",
+                     "fluxnet_morganmon", "fluxnet_santa67", "fluxnet_santa77",
+                     "fluxnet_tharandt"],
+        "gswp2" : ["gswp2_carbon_only", "gswp2_closures", "gswp2_triff"]
+    }
+%}

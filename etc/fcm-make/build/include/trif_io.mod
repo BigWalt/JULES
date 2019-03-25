@@ -1,0 +1,89 @@
+GFORTRAN module version '10' created from /users/global/waltho/MODELS/jules-vn5.2/etc/fcm-make/preprocess/src/jules/src/science/params/trif_io_mod.F90
+MD5:6727e2338f90c6e83b426b4d2798b7fb -- If you edit this, you'll get what you deserve.
+
+(() () () () () () () () () () () () () () () () () () () () () () ()
+() () () ())
+
+()
+
+()
+
+()
+
+()
+
+()
+
+(2 'alloc_fast_io' 'trif_io' '' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0 DIMENSION IN_NAMELIST) (REAL 4 0 0 0 REAL ()) 0 0 ()
+(1 0 EXPLICIT (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1') (CONSTANT (
+INTEGER 4 0 0 0 INTEGER ()) 0 '44')) 0 () () () 0 0)
+3 'alloc_med_io' 'trif_io' '' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0 DIMENSION IN_NAMELIST) (REAL 4 0 0 0 REAL ()) 0 0 ()
+(1 0 EXPLICIT (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1') (CONSTANT (
+INTEGER 4 0 0 0 INTEGER ()) 0 '44')) 0 () () () 0 0)
+4 'alloc_slow_io' 'trif_io' '' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0 DIMENSION IN_NAMELIST) (REAL 4 0 0 0 REAL ()) 0 0 ()
+(1 0 EXPLICIT (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1') (CONSTANT (
+INTEGER 4 0 0 0 INTEGER ()) 0 '44')) 0 () () () 0 0)
+5 'crop_io' 'trif_io' '' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0 DIMENSION IN_NAMELIST) (INTEGER 4 0 0 0 INTEGER ())
+0 0 () (1 0 EXPLICIT (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1') (
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '44')) 0 () () () 0 0)
+6 'dpm_rpm_ratio_io' 'trif_io' '' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DIMENSION IN_NAMELIST) (REAL 4 0 0 0
+REAL ()) 0 0 () (1 0 EXPLICIT (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1')
+(CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '44')) 0 () () () 0 0)
+7 'g_area_io' 'trif_io' '' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0 DIMENSION IN_NAMELIST) (REAL 4 0 0 0 REAL ()) 0 0 ()
+(1 0 EXPLICIT (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1') (CONSTANT (
+INTEGER 4 0 0 0 INTEGER ()) 0 '44')) 0 () () () 0 0)
+8 'g_grow_io' 'trif_io' '' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0 DIMENSION IN_NAMELIST) (REAL 4 0 0 0 REAL ()) 0 0 ()
+(1 0 EXPLICIT (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1') (CONSTANT (
+INTEGER 4 0 0 0 INTEGER ()) 0 '44')) 0 () () () 0 0)
+9 'g_root_io' 'trif_io' '' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0 DIMENSION IN_NAMELIST) (REAL 4 0 0 0 REAL ()) 0 0 ()
+(1 0 EXPLICIT (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1') (CONSTANT (
+INTEGER 4 0 0 0 INTEGER ()) 0 '44')) 0 () () () 0 0)
+10 'g_wood_io' 'trif_io' '' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0 DIMENSION IN_NAMELIST) (REAL 4 0 0 0 REAL ()) 0 0 ()
+(1 0 EXPLICIT (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1') (CONSTANT (
+INTEGER 4 0 0 0 INTEGER ()) 0 '44')) 0 () () () 0 0)
+11 'jules_triffid' 'trif_io' '' 1 ((NAMELIST UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0) (UNKNOWN 0 0 0 0 UNKNOWN ()) 0 0 () () 0 () () (5 7
+8 9 10 12 13 2 3 4 6 14 15) 0 0)
+12 'lai_max_io' 'trif_io' '' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0 DIMENSION IN_NAMELIST) (REAL 4 0 0 0 REAL ()) 0 0 ()
+(1 0 EXPLICIT (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1') (CONSTANT (
+INTEGER 4 0 0 0 INTEGER ()) 0 '44')) 0 () () () 0 0)
+13 'lai_min_io' 'trif_io' '' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0 DIMENSION IN_NAMELIST) (REAL 4 0 0 0 REAL ()) 0 0 ()
+(1 0 EXPLICIT (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1') (CONSTANT (
+INTEGER 4 0 0 0 INTEGER ()) 0 '44')) 0 () () () 0 0)
+16 'max_dimensions' 'max_dimensions' '' 1 ((MODULE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0) (UNKNOWN 0 0 0 0 UNKNOWN ()) 0 0 () ()
+0 () () () 0 0)
+17 'npft_max' 'max_dimensions' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '44') () 0 () () () 0 0)
+18 'print_nlist_jules_triffid' 'trif_io' '' 1 ((PROCEDURE UNKNOWN-INTENT
+MODULE-PROC DECL UNKNOWN 0 0 SUBROUTINE) (UNKNOWN 0 0 0 0 UNKNOWN ()) 0
+0 () () 0 () () () 0 0)
+14 'retran_l_io' 'trif_io' '' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0 DIMENSION IN_NAMELIST) (REAL 4 0 0 0 REAL ()) 0 0 ()
+(1 0 EXPLICIT (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1') (CONSTANT (
+INTEGER 4 0 0 0 INTEGER ()) 0 '44')) 0 () () () 0 0)
+15 'retran_r_io' 'trif_io' '' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0 DIMENSION IN_NAMELIST) (REAL 4 0 0 0 REAL ()) 0 0 ()
+(1 0 EXPLICIT (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '1') (CONSTANT (
+INTEGER 4 0 0 0 INTEGER ()) 0 '44')) 0 () () () 0 0)
+19 'trif_io' 'trif_io' '' 1 ((MODULE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+UNKNOWN 0 0) (UNKNOWN 0 0 0 0 UNKNOWN ()) 0 0 () () 0 () () () 0 0)
+)
+
+('alloc_fast_io' 0 2 'alloc_med_io' 0 3 'alloc_slow_io' 0 4 'crop_io' 0
+5 'dpm_rpm_ratio_io' 0 6 'g_area_io' 0 7 'g_grow_io' 0 8 'g_root_io' 0 9
+'g_wood_io' 0 10 'jules_triffid' 0 11 'lai_max_io' 0 12 'lai_min_io' 0
+13 'max_dimensions' 0 16 'npft_max' 0 17 'print_nlist_jules_triffid' 0
+18 'retran_l_io' 0 14 'retran_r_io' 0 15 'trif_io' 0 19)

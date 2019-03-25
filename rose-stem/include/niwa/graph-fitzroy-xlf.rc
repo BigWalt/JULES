@@ -1,0 +1,283 @@
+###############################################################################
+## Name graphs
+###############################################################################
+
+{%- set name_graphs_fitzroy_xlf = {
+        "niwa_fitzroy_xlf_fcm_make" : "fcm_make_niwa_fitzroy_xlf_omp =>
+                                       fcm_make2_niwa_fitzroy_xlf_omp",
+
+        "niwa_fitzroy_xlf_fcm_make_debug" : "fcm_make_niwa_fitzroy_xlf_debug_noomp =>
+                                             fcm_make2_niwa_fitzroy_xlf_debug_noomp",
+
+        "niwa_fitzroy_xlf_loobos_gl4" : "fcm_make_niwa_fitzroy_xlf_debug_noomp =>
+                                         fcm_make2_niwa_fitzroy_xlf_debug_noomp =>
+                                         niwa_fitzroy_xlf_loobos_gl4 =>
+                                         nccmp_niwa_fitzroy_xlf_loobos_gl4 =>
+                                         housekeep_niwa_fitzroy_xlf_loobos_gl4",
+
+        "niwa_fitzroy_xlf_loobos_gl7" : "fcm_make_niwa_fitzroy_xlf_debug_noomp =>
+                                         fcm_make2_niwa_fitzroy_xlf_debug_noomp =>
+                                         niwa_fitzroy_xlf_loobos_gl7 =>
+                                         nccmp_niwa_fitzroy_xlf_loobos_gl7 =>
+                                         housekeep_niwa_fitzroy_xlf_loobos_gl7",
+
+        "niwa_fitzroy_xlf_loobos_gl8" : "fcm_make_niwa_fitzroy_xlf_debug_noomp =>
+                                           fcm_make2_niwa_fitzroy_xlf_debug_noomp =>
+                                           niwa_fitzroy_xlf_loobos_gl8 =>
+                                           nccmp_niwa_fitzroy_xlf_loobos_gl8 =>
+                                           housekeep_niwa_fitzroy_xlf_loobos_gl8",
+
+        "niwa_fitzroy_xlf_loobos_euro4" : "fcm_make_niwa_fitzroy_xlf_debug_noomp =>
+                                           fcm_make2_niwa_fitzroy_xlf_debug_noomp =>
+                                           niwa_fitzroy_xlf_loobos_euro4 =>
+                                           nccmp_niwa_fitzroy_xlf_loobos_euro4 =>
+                                           housekeep_niwa_fitzroy_xlf_loobos_euro4",
+
+        "niwa_fitzroy_xlf_loobos_forecast" : "fcm_make_niwa_fitzroy_xlf_debug_noomp =>
+                                              fcm_make2_niwa_fitzroy_xlf_debug_noomp =>
+                                              niwa_fitzroy_xlf_loobos_forecast =>
+                                              nccmp_niwa_fitzroy_xlf_loobos_forecast =>
+                                              housekeep_niwa_fitzroy_xlf_loobos_forecast",
+
+        "niwa_fitzroy_xlf_loobos_ukv" : "fcm_make_niwa_fitzroy_xlf_debug_noomp =>
+                                         fcm_make2_niwa_fitzroy_xlf_debug_noomp =>
+                                         niwa_fitzroy_xlf_loobos_ukv =>
+                                         nccmp_niwa_fitzroy_xlf_loobos_ukv =>
+                                         housekeep_niwa_fitzroy_xlf_loobos_ukv",
+
+        "niwa_fitzroy_xlf_loobos_trif" : "fcm_make_niwa_fitzroy_xlf_debug_noomp =>
+                                         fcm_make2_niwa_fitzroy_xlf_debug_noomp =>
+                                         niwa_fitzroy_xlf_loobos_trif_spinup =>
+                                         niwa_fitzroy_xlf_loobos_trif =>
+                                         nccmp_niwa_fitzroy_xlf_loobos_trif =>
+                                         housekeep_niwa_fitzroy_xlf_loobos_trif_spinup & housekeep_niwa_fitzroy_xlf_loobos_trif",
+
+        "niwa_fitzroy_xlf_loobos_julesc" : "fcm_make_niwa_fitzroy_xlf_debug_noomp =>
+                                            fcm_make2_niwa_fitzroy_xlf_debug_noomp =>
+                                            niwa_fitzroy_xlf_loobos_julesc_spinup =>
+                                            niwa_fitzroy_xlf_loobos_julesc & niwa_fitzroy_xlf_loobos_jules_c1p1 & niwa_fitzroy_xlf_loobos_jules_c1p1_fire =>
+                                            nccmp_niwa_fitzroy_xlf_loobos_julesc & nccmp_niwa_fitzroy_xlf_loobos_jules_c1p1 \
+                                            & nccmp_niwa_fitzroy_xlf_loobos_jules_c1p1_fire =>
+                                            housekeep_niwa_fitzroy_xlf_loobos_julesc_spinup & housekeep_niwa_fitzroy_xlf_loobos_jules_c1p1 \
+                                            & housekeep_niwa_fitzroy_xlf_loobos_jules_c1p1_fire & housekeep_niwa_fitzroy_xlf_loobos_julesc",
+
+        "niwa_fitzroy_xlf_loobos_jules_layeredcn" : "fcm_make_niwa_fitzroy_xlf_debug_noomp =>
+                                                     fcm_make2_niwa_fitzroy_xlf_debug_noomp =>
+                                                     niwa_fitzroy_xlf_loobos_jules_layeredcn_spinup =>
+                                                     niwa_fitzroy_xlf_loobos_jules_layeredcn =>
+                                                     nccmp_niwa_fitzroy_xlf_loobos_jules_layeredcn =>
+                                                     housekeep_niwa_fitzroy_xlf_loobos_jules_layeredcn_spinup & housekeep_niwa_fitzroy_xlf_loobos_jules_layeredcn",
+
+        "niwa_fitzroy_xlf_loobos_jules_cn" : "fcm_make_niwa_fitzroy_xlf_debug_noomp =>
+                                              fcm_make2_niwa_fitzroy_xlf_debug_noomp =>
+                                              niwa_fitzroy_xlf_loobos_jules_cn_spinup =>
+                                              niwa_fitzroy_xlf_loobos_jules_cn =>
+                                              nccmp_niwa_fitzroy_xlf_loobos_jules_cn =>
+                                              housekeep_niwa_fitzroy_xlf_loobos_jules_cn_spinup & housekeep_niwa_fitzroy_xlf_loobos_jules_cn",
+
+        "niwa_fitzroy_xlf_loobos_jules_es_1p6" : "fcm_make_niwa_fitzroy_xlf_debug_noomp =>
+                                              fcm_make2_niwa_fitzroy_xlf_debug_noomp =>
+                                              niwa_fitzroy_xlf_loobos_jules_es_1p6_spinup =>
+                                              niwa_fitzroy_xlf_loobos_jules_es_1p6 =>
+                                              nccmp_niwa_fitzroy_xlf_loobos_jules_es_1p6 =>
+                                              housekeep_niwa_fitzroy_xlf_loobos_jules_es_1p6_spinup & housekeep_niwa_fitzroy_xlf_loobos_jules_es_1p6",
+
+        "niwa_fitzroy_xlf_loobos_crops" : "fcm_make_niwa_fitzroy_xlf_debug_noomp =>
+                                           fcm_make2_niwa_fitzroy_xlf_debug_noomp =>
+                                           niwa_fitzroy_xlf_loobos_crops =>
+                                           nccmp_niwa_fitzroy_xlf_loobos_crops =>
+                                           housekeep_niwa_fitzroy_xlf_loobos_crops",
+
+        "niwa_fitzroy_xlf_loobos_prescribe_sthuf" : "fcm_make_niwa_fitzroy_xlf_debug_noomp =>
+                                                     fcm_make2_niwa_fitzroy_xlf_debug_noomp =>
+                                                     niwa_fitzroy_xlf_loobos_prescribe_sthuf =>
+                                                     nccmp_niwa_fitzroy_xlf_loobos_prescribe_sthuf =>
+                                                     housekeep_niwa_fitzroy_xlf_loobos_prescribe_sthuf",
+
+        "niwa_fitzroy_xlf_loobos_irrig" : "fcm_make_niwa_fitzroy_xlf_debug_noomp =>
+                                           fcm_make2_niwa_fitzroy_xlf_debug_noomp =>
+                                           niwa_fitzroy_xlf_loobos_irrig =>
+                                           nccmp_niwa_fitzroy_xlf_loobos_irrig =>
+                                           housekeep_niwa_fitzroy_xlf_loobos_irrig",
+
+        "niwa_fitzroy_xlf_loobos_fire" : "fcm_make_niwa_fitzroy_xlf_debug_noomp =>
+                                          fcm_make2_niwa_fitzroy_xlf_debug_noomp =>
+                                          niwa_fitzroy_xlf_loobos_fire_spinup =>
+                                          niwa_fitzroy_xlf_loobos_fire =>
+                                          nccmp_niwa_fitzroy_xlf_loobos_fire =>
+                                          housekeep_niwa_fitzroy_xlf_loobos_fire_spinup & housekeep_niwa_fitzroy_xlf_loobos_fire",
+
+        "niwa_fitzroy_xlf_loobos_daily_disagg" : "fcm_make_niwa_fitzroy_xlf_debug_noomp =>
+                                                  fcm_make2_niwa_fitzroy_xlf_debug_noomp =>
+                                                  niwa_fitzroy_xlf_loobos_daily_disagg =>
+                                                  nccmp_niwa_fitzroy_xlf_loobos_daily_disagg =>
+                                                  housekeep_niwa_fitzroy_xlf_loobos_daily_disagg",
+
+        "niwa_fitzroy_xlf_loobos_crm1_traitF" : "fcm_make_niwa_fitzroy_xlf_debug_noomp =>
+                                                 fcm_make2_niwa_fitzroy_xlf_debug_noomp =>
+                                                 niwa_fitzroy_xlf_loobos_crm1_traitF =>
+                                                 nccmp_niwa_fitzroy_xlf_loobos_crm1_traitF =>
+                                                 housekeeping_niwa_fitzroy_xlf_loobos_crm1_traitF",
+
+        "niwa_fitzroy_xlf_loobos_crm2_traitF" : "fcm_make_niwa_fitzroy_xlf_debug_noomp =>
+                                                 fcm_make2_niwa_fitzroy_xlf_debug_noomp =>
+                                                 niwa_fitzroy_xlf_loobos_crm2_traitF =>
+                                                 nccmp_niwa_fitzroy_xlf_loobos_crm2_traitF =>
+                                                 housekeeping_niwa_fitzroy_xlf_loobos_crm2_traitF",
+
+        "niwa_fitzroy_xlf_loobos_crm3_traitF" : "fcm_make_niwa_fitzroy_xlf_debug_noomp =>
+                                                 fcm_make2_niwa_fitzroy_xlf_debug_noomp =>
+                                                 niwa_fitzroy_xlf_loobos_crm3_traitF =>
+                                                 nccmp_niwa_fitzroy_xlf_loobos_crm3_traitF =>
+                                                 housekeeping_niwa_fitzroy_xlf_loobos_crm3_traitF",
+
+        "niwa_fitzroy_xlf_loobos_crm4_traitF" : "fcm_make_niwa_fitzroy_xlf_debug_noomp =>
+                                                 fcm_make2_niwa_fitzroy_xlf_debug_noomp =>
+                                                 niwa_fitzroy_xlf_loobos_crm4_traitF =>
+                                                 nccmp_niwa_fitzroy_xlf_loobos_crm4_traitF =>
+                                                 housekeeping_niwa_fitzroy_xlf_loobos_crm4_traitF",
+
+        "niwa_fitzroy_xlf_loobos_crm5_traitF" : "fcm_make_niwa_fitzroy_xlf_debug_noomp =>
+                                                 fcm_make2_niwa_fitzroy_xlf_debug_noomp =>
+                                                 niwa_fitzroy_xlf_loobos_crm5_traitF =>
+                                                 nccmp_niwa_fitzroy_xlf_loobos_crm5_traitF =>
+                                                 housekeeping_niwa_fitzroy_xlf_loobos_crm5_traitF",
+
+        "niwa_fitzroy_xlf_loobos_crm6_traitF" : "fcm_make_niwa_fitzroy_xlf_debug_noomp =>
+                                                 fcm_make2_niwa_fitzroy_xlf_debug_noomp =>
+                                                 niwa_fitzroy_xlf_loobos_crm6_traitF =>
+                                                 nccmp_niwa_fitzroy_xlf_loobos_crm6_traitF =>
+                                                 housekeeping_niwa_fitzroy_xlf_loobos_crm6_traitF",
+
+        "niwa_fitzroy_xlf_loobos_crm6_traitT" : "fcm_make_niwa_fitzroy_xlf_debug_noomp =>
+                                                 fcm_make2_niwa_fitzroy_xlf_debug_noomp =>
+                                                 niwa_fitzroy_xlf_loobos_crm6_traitT =>
+                                                 nccmp_niwa_fitzroy_xlf_loobos_crm6_traitT =>
+                                                 housekeeping_niwa_fitzroy_xlf_loobos_crm6_traitT",
+
+        "niwa_fitzroy_xlf_loobos_crm6_traitF_srfT" : "fcm_make_niwa_fitzroy_xlf_debug_noomp =>
+                                                      fcm_make2_niwa_fitzroy_xlf_debug_noomp =>
+                                                      niwa_fitzroy_xlf_loobos_crm6_traitF_srfT =>
+                                                      nccmp_niwa_fitzroy_xlf_loobos_crm6_traitF_srfT =>
+                                                      housekeeping_niwa_fitzroy_xlf_loobos_crm6_traitF_srfT",
+
+        "niwa_fitzroy_xlf_gswp2_rivers" : "fcm_make_niwa_fitzroy_xlf_omp =>
+                                           fcm_make2_niwa_fitzroy_xlf_omp =>
+                                           niwa_fitzroy_xlf_gswp2_rivers =>
+                                           nccmp_niwa_fitzroy_xlf_gswp2_rivers =>
+                                           housekeep_niwa_fitzroy_xlf_gswp2_rivers",
+
+        "niwa_fitzroy_xlf_gswp2_rivers_restart" : "fcm_make_niwa_fitzroy_xlf_omp =>
+                                                   fcm_make2_niwa_fitzroy_xlf_omp =>
+                                                   niwa_fitzroy_xlf_gswp2_rivers_spinup =>
+                                                   niwa_fitzroy_xlf_gswp2_rivers_restart =>
+                                                   nccmp_niwa_fitzroy_xlf_gswp2_rivers_restart =>
+                                                   housekeep_niwa_fitzroy_xlf_gswp2_rivers_spinup =>
+                                                   housekeep_niwa_fitzroy_xlf_gswp2_rivers_restart",
+
+        "niwa_fitzroy_xlf_gswp2_trip" : "fcm_make_niwa_fitzroy_xlf_omp =>
+                                         fcm_make2_niwa_fitzroy_xlf_omp =>
+                                         niwa_fitzroy_xlf_gswp2_trip =>
+                                         nccmp_niwa_fitzroy_xlf_gswp2_trip =>
+                                         housekeep_niwa_fitzroy_xlf_gswp2_trip",
+
+        "niwa_fitzroy_xlf_gswp2_trip_restart" : "fcm_make_niwa_fitzroy_xlf_omp =>
+                                                 fcm_make2_niwa_fitzroy_xlf_omp =>
+                                                 niwa_fitzroy_xlf_gswp2_trip_spinup =>
+                                                 niwa_fitzroy_xlf_gswp2_trip_restart =>
+                                                 nccmp_niwa_fitzroy_xlf_gswp2_trip_restart =>
+                                                 housekeep_niwa_fitzroy_xlf_gswp2_trip_spinup =>
+                                                 housekeep_niwa_fitzroy_xlf_gswp2_trip_restart",
+
+        "niwa_fitzroy_xlf_gswp2_closures" : "fcm_make_niwa_fitzroy_xlf_omp =>
+                                             fcm_make2_niwa_fitzroy_xlf_omp =>
+                                             niwa_fitzroy_xlf_gswp2_closures =>
+                                             nccmp_niwa_fitzroy_xlf_gswp2_closures =>
+                                             housekeep_niwa_fitzroy_xlf_gswp2_closures",
+
+        "niwa_fitzroy_xlf_gswp2_euro4" : "fcm_make_niwa_fitzroy_xlf_omp =>
+                                          fcm_make2_niwa_fitzroy_xlf_omp =>
+                                          niwa_fitzroy_xlf_gswp2_euro4 =>
+                                          nccmp_niwa_fitzroy_xlf_gswp2_euro4 =>
+                                          housekeep_niwa_fitzroy_xlf_gswp2_euro4",
+
+        "niwa_fitzroy_xlf_gswp2_gl4" : "fcm_make_niwa_fitzroy_xlf_omp =>
+                                        fcm_make2_niwa_fitzroy_xlf_omp =>
+                                        niwa_fitzroy_xlf_gswp2_gl4 =>
+                                        nccmp_niwa_fitzroy_xlf_gswp2_gl4 =>
+                                        housekeep_niwa_fitzroy_xlf_gswp2_gl4",
+
+        "niwa_fitzroy_xlf_gswp2_gl7" : "fcm_make_niwa_fitzroy_xlf_omp =>
+                                        fcm_make2_niwa_fitzroy_xlf_omp =>
+                                        niwa_fitzroy_xlf_gswp2_gl7 =>
+                                        nccmp_niwa_fitzroy_xlf_gswp2_gl7 =>
+                                        housekeep_niwa_fitzroy_xlf_gswp2_gl7",
+
+        "niwa_fitzroy_xlf_gswp2_ukv" : "fcm_make_niwa_fitzroy_xlf_omp =>
+                                        fcm_make2_niwa_fitzroy_xlf_omp =>
+                                        niwa_fitzroy_xlf_gswp2_ukv =>
+                                        nccmp_niwa_fitzroy_xlf_gswp2_ukv =>
+                                        housekeep_niwa_fitzroy_xlf_gswp2_ukv",
+
+        "niwa_fitzroy_xlf_eraint_rfm_2ddata" : "fcm_make_niwa_fitzroy_xlf_omp =>
+                                         fcm_make2_niwa_fitzroy_xlf_omp =>
+                                         niwa_fitzroy_xlf_eraint_rfm_2ddata =>
+                                         nccmp_niwa_fitzroy_xlf_eraint_rfm_2ddata =>
+                                         housekeep_niwa_fitzroy_xlf_eraint_rfm_2ddata",
+
+        "niwa_fitzroy_xlf_eraint_trip_2ddata" : "fcm_make_niwa_fitzroy_xlf_omp =>
+                                         fcm_make2_niwa_fitzroy_xlf_omp =>
+                                         niwa_fitzroy_xlf_eraint_trip_2ddata =>
+                                         nccmp_niwa_fitzroy_xlf_eraint_trip_2ddata =>
+                                         housekeep_niwa_fitzroy_xlf_eraint_trip_2ddata",
+
+        "niwa_fitzroy_xlf_imogen_layeredc" : "fcm_make_niwa_fitzroy_xlf_omp =>
+                                              fcm_make2_niwa_fitzroy_xlf_omp =>
+                                              niwa_fitzroy_xlf_imogen_layeredc_spinup =>
+                                              niwa_fitzroy_xlf_imogen_layeredc =>
+                                              nccmp_niwa_fitzroy_xlf_imogen_layeredc =>
+                                              housekeep_niwa_fitzroy_xlf_imogen_layeredc_spinup & housekeep_niwa_fitzroy_xlf_imogen_layeredc",
+
+    }
+%}
+
+###############################################################################
+## Group definitions
+###############################################################################
+
+{%- set groups_fitzroy_xlf = {
+        "fitzroy_xlf" : ["fitzroy_xlf_build",
+                         "fitzroy_xlf_loobos",
+                         "fitzroy_xlf_gswp2",
+			 "fitzroy_xlf_eraint",
+			 "fitzroy_xlf_imogen"],
+
+        "fitzroy_xlf_build" : ["niwa_fitzroy_xlf_fcm_make",
+                               "niwa_fitzroy_xlf_fcm_make_debug"],
+
+        "fitzroy_xlf_loobos" : ["niwa_fitzroy_xlf_loobos_gl4", "niwa_fitzroy_xlf_loobos_gl8", 
+                                "niwa_fitzroy_xlf_loobos_euro4",
+                                "niwa_fitzroy_xlf_loobos_forecast", "niwa_fitzroy_xlf_loobos_ukv",
+                                "niwa_fitzroy_xlf_loobos_trif", "niwa_fitzroy_xlf_loobos_crops",
+                                "niwa_fitzroy_xlf_loobos_prescribe_sthuf",
+                                "niwa_fitzroy_xlf_loobos_fire", "niwa_fitzroy_xlf_loobos_daily_disagg",
+                                "niwa_fitzroy_xlf_loobos_julesc", "niwa_fitzroy_xlf_loobos_irrig",
+                                "niwa_fitzroy_xlf_loobos_jules_cn","niwa_fitzroy_xlf_loobos_jules_layeredcn",
+                                "niwa_fitzroy_xlf_loobos_jules_es_1p6","niwa_fitzroy_xlf_loobos_gl7",
+                                "niwa_fitzroy_xlf_loobos_crm1_traitF", "niwa_fitzroy_xlf_loobos_crm2_traitF",
+                                "niwa_fitzroy_xlf_loobos_crm3_traitF", "niwa_fitzroy_xlf_loobos_crm4_traitF",
+                                "niwa_fitzroy_xlf_loobos_crm5_traitF", "niwa_fitzroy_xlf_loobos_crm6_traitF",
+                                "niwa_fitzroy_xlf_loobos_crm6_traitT", "niwa_fitzroy_xlf_loobos_crm6_traitF_srfT"],
+
+        "fitzroy_xlf_gswp2" : ["niwa_fitzroy_xlf_gswp2_rivers", "niwa_fitzroy_xlf_gswp2_rivers_restart", 
+                               "niwa_fitzroy_xlf_gswp2_trip",
+                               "niwa_fitzroy_xlf_gswp2_trip_restart", "niwa_fitzroy_xlf_gswp2_closures",
+                               "niwa_fitzroy_xlf_gswp2_euro4","niwa_fitzroy_xlf_gswp2_gl4",
+                               "niwa_fitzroy_xlf_gswp2_ukv","niwa_fitzroy_xlf_gswp2_gl7"],
+
+         "fitzroy_xlf_eraint" : ["niwa_fitzroy_xlf_eraint_rfm_2ddata", "niwa_fitzroy_xlf_eraint_trip_2ddata"],  
+                    
+         "fitzroy_xlf_imogen" : ["niwa_fitzroy_xlf_imogen_layeredc"],                      
+
+    }
+%}

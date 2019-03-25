@@ -1,0 +1,192 @@
+GFORTRAN module version '10' created from /users/global/waltho/MODELS/jules-vn5.2/etc/fcm-make/preprocess/src/jules/src/util/dictionary_mod.F90
+MD5:a882e8887aaab2c592c762b34a9b4f69 -- If you edit this, you'll get what you deserve.
+
+(() () () () () () () () () () () () () () () () () () () () () () ()
+() () () ())
+
+()
+
+(('dict' 'dictionary_mod' 2) ('dict_create' 'dictionary_mod' 3 4 5) (
+'dict_get' 'dictionary_mod' 6 7 8) ('dict_set' 'dictionary_mod' 9 10 11))
+
+()
+
+()
+
+()
+
+(2 'Dict' 'dictionary_mod' '' 1 ((DERIVED UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0 POINTER_COMP) (UNKNOWN 0 0 0 0 UNKNOWN ()) 0 0 () ()
+0 ((12 'length' (INTEGER 4 0 0 0 INTEGER ()) () (UNKNOWN-FL
+UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0) UNKNOWN-ACCESS (
+CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '0')) (13 'keys' (CHARACTER 1 0
+0 0 CHARACTER ((CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '50'))) (1 0
+DEFERRED () ()) (UNKNOWN-FL UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN UNKNOWN
+0 0 DIMENSION POINTER) UNKNOWN-ACCESS (NULL (UNKNOWN 0 0 0 0 UNKNOWN ())
+0)) (14 'int_values' (INTEGER 4 0 0 0 INTEGER ()) (1 0 DEFERRED () ()) (
+UNKNOWN-FL UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DIMENSION
+POINTER) UNKNOWN-ACCESS (NULL (UNKNOWN 0 0 0 0 UNKNOWN ()) 0)) (15
+'real_values' (REAL 4 0 0 0 REAL ()) (1 0 DEFERRED () ()) (UNKNOWN-FL
+UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DIMENSION POINTER)
+UNKNOWN-ACCESS (NULL (UNKNOWN 0 0 0 0 UNKNOWN ()) 0)) (16 'char_values'
+(CHARACTER 1 0 0 0 CHARACTER ((CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0
+'100'))) (1 0 DEFERRED () ()) (UNKNOWN-FL UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0 DIMENSION POINTER) UNKNOWN-ACCESS (NULL (UNKNOWN 0 0
+0 0 UNKNOWN ()) 0))) PUBLIC (() () () ()) () 0 0 15560572)
+17 'dict' 'dictionary_mod' '' 1 ((PROCEDURE UNKNOWN-INTENT UNKNOWN-PROC
+DECL UNKNOWN 0 0 FUNCTION GENERIC) (UNKNOWN 0 0 0 0 UNKNOWN ()) 0 0 () ()
+0 () () () 0 0)
+18 'dict_char_val_len' 'dictionary_mod' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '100') () 0 () () () 0 0)
+3 'dict_create_char' 'dictionary_mod' '' 1 ((PROCEDURE UNKNOWN-INTENT
+MODULE-PROC DECL UNKNOWN 0 0 FUNCTION IMPLICIT_PURE) (DERIVED 2 0 0 0
+DERIVED ()) 19 0 (20 21) () 22 () () () 0 0)
+5 'dict_create_int' 'dictionary_mod' '' 1 ((PROCEDURE UNKNOWN-INTENT
+MODULE-PROC DECL UNKNOWN 0 0 FUNCTION IMPLICIT_PURE) (DERIVED 2 0 0 0
+DERIVED ()) 23 0 (24 25) () 26 () () () 0 0)
+4 'dict_create_real' 'dictionary_mod' '' 1 ((PROCEDURE UNKNOWN-INTENT
+MODULE-PROC DECL UNKNOWN 0 0 FUNCTION IMPLICIT_PURE) (DERIVED 2 0 0 0
+DERIVED ()) 27 0 (28 29) () 30 () () () 0 0)
+31 'dict_free' 'dictionary_mod' '' 1 ((PROCEDURE UNKNOWN-INTENT
+MODULE-PROC DECL UNKNOWN 0 0 SUBROUTINE IMPLICIT_PURE) (UNKNOWN 0 0 0 0
+UNKNOWN ()) 32 0 (33) () 0 () () () 0 0)
+6 'dict_get_char' 'dictionary_mod' '' 1 ((PROCEDURE UNKNOWN-INTENT
+MODULE-PROC DECL UNKNOWN 0 0 SUBROUTINE) (UNKNOWN 0 0 0 0 UNKNOWN ()) 34
+0 (35 36 37) () 0 () () () 0 0)
+8 'dict_get_int' 'dictionary_mod' '' 1 ((PROCEDURE UNKNOWN-INTENT
+MODULE-PROC DECL UNKNOWN 0 0 SUBROUTINE) (UNKNOWN 0 0 0 0 UNKNOWN ()) 38
+0 (39 40 41) () 0 () () () 0 0)
+7 'dict_get_real' 'dictionary_mod' '' 1 ((PROCEDURE UNKNOWN-INTENT
+MODULE-PROC DECL UNKNOWN 0 0 SUBROUTINE) (UNKNOWN 0 0 0 0 UNKNOWN ()) 42
+0 (43 44 45) () 0 () () () 0 0)
+46 'dict_has_key' 'dictionary_mod' '' 1 ((PROCEDURE UNKNOWN-INTENT
+MODULE-PROC DECL UNKNOWN 0 0 FUNCTION IMPLICIT_PURE) (LOGICAL 4 0 0 0
+LOGICAL ()) 47 0 (48 49) () 50 () () () 0 0)
+51 'dict_key_len' 'dictionary_mod' '' 1 ((PARAMETER UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN IMPLICIT-SAVE 0 0) (INTEGER 4 0 0 0 INTEGER ()) 0 0
+() (CONSTANT (INTEGER 4 0 0 0 INTEGER ()) 0 '50') () 0 () () () 0 0)
+9 'dict_set_char' 'dictionary_mod' '' 1 ((PROCEDURE UNKNOWN-INTENT
+MODULE-PROC DECL UNKNOWN 0 0 SUBROUTINE) (UNKNOWN 0 0 0 0 UNKNOWN ()) 52
+0 (53 54 55) () 0 () () () 0 0)
+11 'dict_set_int' 'dictionary_mod' '' 1 ((PROCEDURE UNKNOWN-INTENT
+MODULE-PROC DECL UNKNOWN 0 0 SUBROUTINE) (UNKNOWN 0 0 0 0 UNKNOWN ()) 56
+0 (57 58 59) () 0 () () () 0 0)
+10 'dict_set_real' 'dictionary_mod' '' 1 ((PROCEDURE UNKNOWN-INTENT
+MODULE-PROC DECL UNKNOWN 0 0 SUBROUTINE) (UNKNOWN 0 0 0 0 UNKNOWN ()) 60
+0 (61 62 63) () 0 () () () 0 0)
+64 'dictionary_mod' 'dictionary_mod' '' 1 ((MODULE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0) (UNKNOWN 0 0 0 0 UNKNOWN ()) 0 0 () ()
+0 () () () 0 0)
+65 'log_debug' 'logging_mod' '' 1 ((PROCEDURE UNKNOWN-INTENT MODULE-PROC
+DECL UNKNOWN 0 0 SUBROUTINE) (UNKNOWN 0 0 0 0 UNKNOWN ()) 66 0 (67 68) ()
+0 () () () 0 0)
+69 'log_error' 'logging_mod' '' 1 ((PROCEDURE UNKNOWN-INTENT MODULE-PROC
+DECL UNKNOWN 0 0 SUBROUTINE) (UNKNOWN 0 0 0 0 UNKNOWN ()) 70 0 (71 72) ()
+0 () () () 0 0)
+73 'log_fatal' 'logging_mod' '' 1 ((PROCEDURE UNKNOWN-INTENT MODULE-PROC
+DECL UNKNOWN 0 0 SUBROUTINE) (UNKNOWN 0 0 0 0 UNKNOWN ()) 74 0 (75 76) ()
+0 () () () 0 0)
+77 'log_info' 'logging_mod' '' 1 ((PROCEDURE UNKNOWN-INTENT MODULE-PROC
+DECL UNKNOWN 0 0 SUBROUTINE) (UNKNOWN 0 0 0 0 UNKNOWN ()) 78 0 (79 80) ()
+0 () () () 0 0)
+81 'log_warn' 'logging_mod' '' 1 ((PROCEDURE UNKNOWN-INTENT MODULE-PROC
+DECL UNKNOWN 0 0 SUBROUTINE) (UNKNOWN 0 0 0 0 UNKNOWN ()) 82 0 (83 84) ()
+0 () () () 0 0)
+85 'null' '(intrinsic)' '' 1 ((PROCEDURE UNKNOWN-INTENT INTRINSIC-PROC
+UNKNOWN UNKNOWN 0 0 FUNCTION) (UNKNOWN 0 0 0 0 UNKNOWN ()) 0 0 () () 0 ()
+() () 0 0)
+20 'max_len' '' '' 19 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+21 'type_indicator' '' '' 19 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN
+0 0 DUMMY) (CHARACTER 1 0 0 0 CHARACTER (())) 0 0 () () 0 () () () 0 0)
+22 'dict_val' '' '' 19 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+UNKNOWN 0 0 RESULT) (DERIVED 2 0 0 0 DERIVED ()) 0 0 () () 0 () () () 0
+0)
+24 'max_len' '' '' 23 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+25 'type_indicator' '' '' 23 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN
+0 0 DUMMY) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+26 'dict_val' '' '' 23 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+UNKNOWN 0 0 RESULT) (DERIVED 2 0 0 0 DERIVED ()) 0 0 () () 0 () () () 0
+0)
+28 'max_len' '' '' 27 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+29 'type_indicator' '' '' 27 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN
+0 0 DUMMY) (REAL 4 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+30 'dict_val' '' '' 27 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+UNKNOWN 0 0 RESULT) (DERIVED 2 0 0 0 DERIVED ()) 0 0 () () 0 () () () 0
+0)
+33 'dict_val' '' '' 32 ((VARIABLE INOUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (DERIVED 2 0 0 0 DERIVED ()) 0 0 () () 0 () () () 0 0)
+35 'dict_val' '' '' 34 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (DERIVED 2 0 0 0 DERIVED ()) 0 0 () () 0 () () () 0 0)
+36 'key' '' '' 34 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
+(CHARACTER 1 0 0 0 CHARACTER (())) 0 0 () () 0 () () () 0 0)
+37 'value' '' '' 34 ((VARIABLE OUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (CHARACTER 1 0 0 0 CHARACTER (())) 0 0 () () 0 () () () 0 0)
+39 'dict_val' '' '' 38 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (DERIVED 2 0 0 0 DERIVED ()) 0 0 () () 0 () () () 0 0)
+40 'key' '' '' 38 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
+(CHARACTER 1 0 0 0 CHARACTER (())) 0 0 () () 0 () () () 0 0)
+41 'value' '' '' 38 ((VARIABLE OUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+43 'dict_val' '' '' 42 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (DERIVED 2 0 0 0 DERIVED ()) 0 0 () () 0 () () () 0 0)
+44 'key' '' '' 42 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
+(CHARACTER 1 0 0 0 CHARACTER (())) 0 0 () () 0 () () () 0 0)
+45 'value' '' '' 42 ((VARIABLE OUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (REAL 4 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+48 'dict_val' '' '' 47 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (DERIVED 2 0 0 0 DERIVED ()) 0 0 () () 0 () () () 0 0)
+49 'key' '' '' 47 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
+(CHARACTER 1 0 0 0 CHARACTER (())) 0 0 () () 0 () () () 0 0)
+50 'has_key' '' '' 47 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+UNKNOWN 0 0 RESULT) (LOGICAL 4 0 0 0 LOGICAL ()) 0 0 () () 0 () () () 0
+0)
+53 'dict_val' '' '' 52 ((VARIABLE INOUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (DERIVED 2 0 0 0 DERIVED ()) 0 0 () () 0 () () () 0 0)
+54 'key' '' '' 52 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
+(CHARACTER 1 0 0 0 CHARACTER (())) 0 0 () () 0 () () () 0 0)
+55 'value' '' '' 52 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
+(CHARACTER 1 0 0 0 CHARACTER (())) 0 0 () () 0 () () () 0 0)
+57 'dict_val' '' '' 56 ((VARIABLE INOUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (DERIVED 2 0 0 0 DERIVED ()) 0 0 () () 0 () () () 0 0)
+58 'key' '' '' 56 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
+(CHARACTER 1 0 0 0 CHARACTER (())) 0 0 () () 0 () () () 0 0)
+59 'value' '' '' 56 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
+(INTEGER 4 0 0 0 INTEGER ()) 0 0 () () 0 () () () 0 0)
+61 'dict_val' '' '' 60 ((VARIABLE INOUT UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (DERIVED 2 0 0 0 DERIVED ()) 0 0 () () 0 () () () 0 0)
+62 'key' '' '' 60 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
+(CHARACTER 1 0 0 0 CHARACTER (())) 0 0 () () 0 () () () 0 0)
+63 'value' '' '' 60 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 DUMMY)
+(REAL 4 0 0 0 REAL ()) 0 0 () () 0 () () () 0 0)
+67 'proc_name' '' '' 66 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (CHARACTER 1 0 0 0 CHARACTER (())) 0 0 () () 0 () () () 0 0)
+68 'message' '' '' 66 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (CHARACTER 1 0 0 0 CHARACTER (())) 0 0 () () 0 () () () 0 0)
+71 'proc_name' '' '' 70 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (CHARACTER 1 0 0 0 CHARACTER (())) 0 0 () () 0 () () () 0 0)
+72 'message' '' '' 70 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (CHARACTER 1 0 0 0 CHARACTER (())) 0 0 () () 0 () () () 0 0)
+75 'proc_name' '' '' 74 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (CHARACTER 1 0 0 0 CHARACTER (())) 0 0 () () 0 () () () 0 0)
+76 'message' '' '' 74 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (CHARACTER 1 0 0 0 CHARACTER (())) 0 0 () () 0 () () () 0 0)
+79 'proc_name' '' '' 78 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (CHARACTER 1 0 0 0 CHARACTER (())) 0 0 () () 0 () () () 0 0)
+80 'message' '' '' 78 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (CHARACTER 1 0 0 0 CHARACTER (())) 0 0 () () 0 () () () 0 0)
+83 'proc_name' '' '' 82 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (CHARACTER 1 0 0 0 CHARACTER (())) 0 0 () () 0 () () () 0 0)
+84 'message' '' '' 82 ((VARIABLE IN UNKNOWN-PROC UNKNOWN UNKNOWN 0 0
+DUMMY) (CHARACTER 1 0 0 0 CHARACTER (())) 0 0 () () 0 () () () 0 0)
+)
+
+('Dict' 0 2 'dict' 0 17 'dict_char_val_len' 0 18 'dict_create_char' 0 3
+'dict_create_int' 0 5 'dict_create_real' 0 4 'dict_free' 0 31
+'dict_get_char' 0 6 'dict_get_int' 0 8 'dict_get_real' 0 7 'dict_has_key'
+0 46 'dict_key_len' 0 51 'dict_set_char' 0 9 'dict_set_int' 0 11
+'dict_set_real' 0 10 'dictionary_mod' 0 64 'log_debug' 0 65 'log_error'
+0 69 'log_fatal' 0 73 'log_info' 0 77 'log_warn' 0 81 'null' 0 85)

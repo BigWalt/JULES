@@ -1,0 +1,11 @@
+# Import site-specific variables
+
+# The only variable that these files MUST define is BENCHMARK_DATA_DIR
+
+{%- if SITE == 'meto' %}
+%include 'include/meto/variables.rc'
+{%- elif SITE == 'vm' %}
+%include 'include/vm/variables.rc'
+{%- elif SITE == 'jasmin' %}
+%include 'include/jasmin/variables.rc'
+{%- endif %}

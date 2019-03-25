@@ -1,0 +1,1 @@
+{%- set BENCHMARK_DATA_DIR = '/group_workspaces/jasmin2/jules/admin/benchmarking-data' %}

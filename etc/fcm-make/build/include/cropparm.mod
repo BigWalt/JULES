@@ -1,0 +1,111 @@
+GFORTRAN module version '10' created from /users/global/waltho/MODELS/jules-vn5.2/etc/fcm-make/preprocess/src/jules/src/science/params/cropparm_mod.F90
+MD5:b73f8630be02fe867bd43b79ff7e968f -- If you edit this, you'll get what you deserve.
+
+(() () () () () () () () () () () () () () () () () () () () () () () ()
+() () ())
+
+()
+
+()
+
+()
+
+()
+
+()
+
+(2 'allo1' 'cropparm' '' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0 ALLOCATABLE DIMENSION) (REAL 4 0 0 0 REAL ()) 0 0 ()
+(1 0 DEFERRED () ()) 0 () () () 0 0)
+3 'allo2' 'cropparm' '' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+UNKNOWN 0 0 ALLOCATABLE DIMENSION) (REAL 4 0 0 0 REAL ()) 0 0 () (1 0
+DEFERRED () ()) 0 () () () 0 0)
+4 'alpha1' 'cropparm' '' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0 ALLOCATABLE DIMENSION) (REAL 4 0 0 0 REAL ()) 0 0 ()
+(1 0 DEFERRED () ()) 0 () () () 0 0)
+5 'alpha2' 'cropparm' '' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0 ALLOCATABLE DIMENSION) (REAL 4 0 0 0 REAL ()) 0 0 ()
+(1 0 DEFERRED () ()) 0 () () () 0 0)
+6 'alpha3' 'cropparm' '' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0 ALLOCATABLE DIMENSION) (REAL 4 0 0 0 REAL ()) 0 0 ()
+(1 0 DEFERRED () ()) 0 () () () 0 0)
+7 'beta1' 'cropparm' '' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+UNKNOWN 0 0 ALLOCATABLE DIMENSION) (REAL 4 0 0 0 REAL ()) 0 0 () (1 0
+DEFERRED () ()) 0 () () () 0 0)
+8 'beta2' 'cropparm' '' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+UNKNOWN 0 0 ALLOCATABLE DIMENSION) (REAL 4 0 0 0 REAL ()) 0 0 () (1 0
+DEFERRED () ()) 0 () () () 0 0)
+9 'beta3' 'cropparm' '' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+UNKNOWN 0 0 ALLOCATABLE DIMENSION) (REAL 4 0 0 0 REAL ()) 0 0 () (1 0
+DEFERRED () ()) 0 () () () 0 0)
+10 'cfrac_l' 'cropparm' '' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0 ALLOCATABLE DIMENSION) (REAL 4 0 0 0 REAL ()) 0 0 ()
+(1 0 DEFERRED () ()) 0 () () () 0 0)
+11 'cfrac_r' 'cropparm' '' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0 ALLOCATABLE DIMENSION) (REAL 4 0 0 0 REAL ()) 0 0 ()
+(1 0 DEFERRED () ()) 0 () () () 0 0)
+12 'cfrac_s' 'cropparm' '' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0 ALLOCATABLE DIMENSION) (REAL 4 0 0 0 REAL ()) 0 0 ()
+(1 0 DEFERRED () ()) 0 () () () 0 0)
+13 'crit_pp' 'cropparm' '' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0 ALLOCATABLE DIMENSION) (REAL 4 0 0 0 REAL ()) 0 0 ()
+(1 0 DEFERRED () ()) 0 () () () 0 0)
+14 'cropparm' 'cropparm' '' 1 ((MODULE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0) (UNKNOWN 0 0 0 0 UNKNOWN ()) 0 0 () () 0 () () () 0
+0)
+15 'delta' 'cropparm' '' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0 ALLOCATABLE DIMENSION) (REAL 4 0 0 0 REAL ()) 0 0 ()
+(1 0 DEFERRED () ()) 0 () () () 0 0)
+16 'initial_c_dvi' 'cropparm' '' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 ALLOCATABLE DIMENSION) (REAL 4 0 0 0
+REAL ()) 0 0 () (1 0 DEFERRED () ()) 0 () () () 0 0)
+17 'initial_carbon' 'cropparm' '' 1 ((VARIABLE UNKNOWN-INTENT
+UNKNOWN-PROC UNKNOWN UNKNOWN 0 0 ALLOCATABLE DIMENSION) (REAL 4 0 0 0
+REAL ()) 0 0 () (1 0 DEFERRED () ()) 0 () () () 0 0)
+18 'mu' 'cropparm' '' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+UNKNOWN 0 0 ALLOCATABLE DIMENSION) (REAL 4 0 0 0 REAL ()) 0 0 () (1 0
+DEFERRED () ()) 0 () () () 0 0)
+19 'nu' 'cropparm' '' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC UNKNOWN
+UNKNOWN 0 0 ALLOCATABLE DIMENSION) (REAL 4 0 0 0 REAL ()) 0 0 () (1 0
+DEFERRED () ()) 0 () () () 0 0)
+20 'pp_sens' 'cropparm' '' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0 ALLOCATABLE DIMENSION) (REAL 4 0 0 0 REAL ()) 0 0 ()
+(1 0 DEFERRED () ()) 0 () () () 0 0)
+21 'r_gamma' 'cropparm' '' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0 ALLOCATABLE DIMENSION) (REAL 4 0 0 0 REAL ()) 0 0 ()
+(1 0 DEFERRED () ()) 0 () () () 0 0)
+22 'remob' 'cropparm' '' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0 ALLOCATABLE DIMENSION) (REAL 4 0 0 0 REAL ()) 0 0 ()
+(1 0 DEFERRED () ()) 0 () () () 0 0)
+23 'rt_dir' 'cropparm' '' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0 ALLOCATABLE DIMENSION) (REAL 4 0 0 0 REAL ()) 0 0 ()
+(1 0 DEFERRED () ()) 0 () () () 0 0)
+24 'sen_dvi' 'cropparm' '' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0 ALLOCATABLE DIMENSION) (REAL 4 0 0 0 REAL ()) 0 0 ()
+(1 0 DEFERRED () ()) 0 () () () 0 0)
+25 't_bse' 'cropparm' '' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0 ALLOCATABLE DIMENSION) (REAL 4 0 0 0 REAL ()) 0 0 ()
+(1 0 DEFERRED () ()) 0 () () () 0 0)
+26 't_max' 'cropparm' '' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0 ALLOCATABLE DIMENSION) (REAL 4 0 0 0 REAL ()) 0 0 ()
+(1 0 DEFERRED () ()) 0 () () () 0 0)
+27 't_mort' 'cropparm' '' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0 ALLOCATABLE DIMENSION) (REAL 4 0 0 0 REAL ()) 0 0 ()
+(1 0 DEFERRED () ()) 0 () () () 0 0)
+28 't_opt' 'cropparm' '' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0 ALLOCATABLE DIMENSION) (REAL 4 0 0 0 REAL ()) 0 0 ()
+(1 0 DEFERRED () ()) 0 () () () 0 0)
+29 'tt_emr' 'cropparm' '' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0 ALLOCATABLE DIMENSION) (REAL 4 0 0 0 REAL ()) 0 0 ()
+(1 0 DEFERRED () ()) 0 () () () 0 0)
+30 'yield_frac' 'cropparm' '' 1 ((VARIABLE UNKNOWN-INTENT UNKNOWN-PROC
+UNKNOWN UNKNOWN 0 0 ALLOCATABLE DIMENSION) (REAL 4 0 0 0 REAL ()) 0 0 ()
+(1 0 DEFERRED () ()) 0 () () () 0 0)
+)
+
+('allo1' 0 2 'allo2' 0 3 'alpha1' 0 4 'alpha2' 0 5 'alpha3' 0 6 'beta1'
+0 7 'beta2' 0 8 'beta3' 0 9 'cfrac_l' 0 10 'cfrac_r' 0 11 'cfrac_s' 0 12
+'crit_pp' 0 13 'cropparm' 0 14 'delta' 0 15 'initial_c_dvi' 0 16
+'initial_carbon' 0 17 'mu' 0 18 'nu' 0 19 'pp_sens' 0 20 'r_gamma' 0 21
+'remob' 0 22 'rt_dir' 0 23 'sen_dvi' 0 24 't_bse' 0 25 't_max' 0 26
+'t_mort' 0 27 't_opt' 0 28 'tt_emr' 0 29 'yield_frac' 0 30)

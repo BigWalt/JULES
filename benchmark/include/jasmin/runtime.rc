@@ -1,0 +1,134 @@
+###############################################################################
+## Build jobs
+###############################################################################
+    [[JASMIN_LOTUS]]
+        env-script = """
+                                module add parallel-netcdf/intel
+                                """
+        [[[job submission]]]
+            method = lsf
+        [[[directives]]]
+            -q = lotus
+        [[[environment]]]
+            ROSE_LAUNCHER = mpirun.lotus
+    
+    [[JASMIN_FCM_MAKE]]
+        inherit = None, JASMIN_LOTUS
+        
+        [[[environment]]]
+            JULES_PLATFORM = jasmin-lotus-intel
+            ROSE_TASK_APP = fcm_make            
+            JULES_SOURCE = {{ SOURCE_JULES }}
+
+        [[[directives]]]
+            -W = 00:20 
+            -n = 1
+
+    [[fcm_make_debug]]
+        inherit = None, JASMIN_FCM_MAKE
+        [[[environment]]]
+            JULES_BUILD = normal   
+
+    [[fcm_make_mpi]]
+        inherit = None, JASMIN_FCM_MAKE
+        [[[environment]]]
+            JULES_BUILD = normal  
+
+###############################################################################
+## Compute jobs
+###############################################################################
+    [[JASMIN_COMPUTE]]
+        inherit = None, JASMIN_LOTUS, COMPUTE
+        [[[directives]]] 
+            -x =   
+        [[[environment]]]
+            LD_LIBRARY_PATH = $LD_LIBRARY_PATH:$HDF5_LIBDIR            
+            
+    [[JASMIN_FLUXNET]]
+        inherit = None, JASMIN_COMPUTE
+        [[[directives]]]
+            -n = 1
+            -W = 00:30
+        [[[environment]]]
+            BUILD_NAME = fcm_make_mpi
+            
+    [[fluxnet_bondville]]
+        inherit = FLUXNET, JASMIN_FLUXNET
+        
+    [[fluxnet_elsaler]]
+        inherit = FLUXNET, JASMIN_FLUXNET
+        
+    [[fluxnet_fortpeck]]
+        inherit = FLUXNET, JASMIN_FLUXNET
+        
+    [[fluxnet_harvard]]
+        inherit = FLUXNET, JASMIN_FLUXNET
+        
+    [[fluxnet_hyytiala]]
+        inherit = FLUXNET, JASMIN_FLUXNET
+        
+    [[fluxnet_kaamanen]]
+        inherit = FLUXNET, JASMIN_FLUXNET
+        
+    [[fluxnet_morganmon]]
+        inherit = FLUXNET, JASMIN_FLUXNET
+        
+    [[fluxnet_santa67]]
+        inherit = FLUXNET, JASMIN_FLUXNET
+        
+    [[fluxnet_santa77]]
+        inherit = FLUXNET, JASMIN_FLUXNET
+        
+    [[fluxnet_tharandt]]
+        inherit = FLUXNET, JASMIN_FLUXNET
+
+    [[JASMIN_GSWP2]]
+        inherit = None, JASMIN_COMPUTE
+        [[[environment]]]
+            BUILD_NAME = fcm_make_mpi
+
+    [[JASMIN_GSWP2_LONG]]
+        inherit = None, JASMIN_GSWP2
+        pre-script = gen_gswp2_drive_file
+        [[[directives]]]
+            -n = 64
+            -W = 03:00
+
+    [[JASMIN_GSWP2_SHORT]]
+        inherit = None, JASMIN_GSWP2
+        [[[directives]]]
+            -n = 8
+            -W = 00:30
+
+    [[gswp2_carbon_only]]
+        inherit = GSWP2, JASMIN_GSWP2_LONG        
+
+    [[gswp2_closures]]
+        inherit = GSWP2, JASMIN_GSWP2_SHORT
+        
+    [[gswp2_triff]]
+        inherit = GSWP2, JASMIN_GSWP2_LONG
+
+################################################
+## Benchmarking and cleanup jobs
+################################################
+    [[jasmin_benchmark]]
+        inherit = None, BENCHMARK_FAMILY
+        [[[job submission]]]
+            method = lsf
+        [[[directives]]]
+            -q = lotus
+            -W = 00:10 
+            -n = 1
+
+    [[jasmin_cleanup]]
+        inherit = None, CLEANUP_FAMILY
+        [[[job submission]]]
+            method = lsf
+        [[[directives]]]
+            -q = lotus
+            -W = 00:05
+            -n = 1
+
+
+

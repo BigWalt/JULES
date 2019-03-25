@@ -1,0 +1,85 @@
+###############################################################################
+## Build jobs
+###############################################################################
+    [[VM_BUILD]]
+        inherit = None, EXTRACT_AND_BUILD, LINUX
+        [[[environment]]]
+            ROSE_TASK_N_JOBS = 2
+            JULES_PLATFORM = vm
+
+    [[fcm_make_noomp]]
+        inherit = VM_BUILD
+        [[[environment]]]
+            JULES_BUILD = normal
+            JULES_OMP = noomp
+            
+    [[fcm_make_omp]]
+        inherit = VM_BUILD
+        [[[environment]]]
+            JULES_BUILD = normal
+            JULES_OMP = omp
+            
+
+###############################################################################
+## Compute jobs
+###############################################################################
+    [[VM_COMPUTE]]
+        inherit = None, LINUX, COMPUTE
+        [[[remote]]]
+            host = {{ ROSE_ORIG_HOST }}
+            
+    [[VM_FLUXNET]]
+        inherit = None, VM_COMPUTE
+        [[[environment]]]
+            BUILD_NAME = fcm_make_noomp
+            MPI_NUM_TASKS = 1
+            OMP_NUM_THREADS = 1
+            NPROC = $MPI_NUM_TASKS
+            
+    [[fluxnet_bondville]]
+        inherit = FLUXNET, VM_FLUXNET
+        
+    [[fluxnet_elsaler]]
+        inherit = FLUXNET, VM_FLUXNET
+        
+    [[fluxnet_fortpeck]]
+        inherit = FLUXNET, VM_FLUXNET
+        
+    [[fluxnet_harvard]]
+        inherit = FLUXNET, VM_FLUXNET
+        
+    [[fluxnet_hyytiala]]
+        inherit = FLUXNET, VM_FLUXNET
+        
+    [[fluxnet_kaamanen]]
+        inherit = FLUXNET, VM_FLUXNET
+        
+    [[fluxnet_morganmon]]
+        inherit = FLUXNET, VM_FLUXNET
+        
+    [[fluxnet_santa67]]
+        inherit = FLUXNET, VM_FLUXNET
+        
+    [[fluxnet_santa77]]
+        inherit = FLUXNET, VM_FLUXNET
+        
+    [[fluxnet_tharandt]]
+        inherit = FLUXNET, VM_FLUXNET
+
+    [[VM_GSWP2]]
+        inherit = None, VM_COMPUTE
+        pre-script = gen_gswp2_drive_file
+        [[[environment]]]
+            BUILD_NAME = fcm_make_omp
+            MPI_NUM_TASKS = 1
+            OMP_NUM_THREADS = 2
+            NPROC = $MPI_NUM_TASKS
+
+    [[gswp2_carbon_only]]
+        inherit = GSWP2, VM_GSWP2
+        
+    [[gswp2_closures]]
+        inherit = GSWP2, VM_GSWP2
+        
+    [[gswp2_triff]]
+        inherit = GSWP2, VM_GSWP2

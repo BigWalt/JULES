@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>{{ report.title }} - JULES benchmarking report</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/report.css" />
+    <link rel="stylesheet" type="text/css" href="assets/lib/nv.d3.css" />
+    <script type="text/javascript" src="assets/lib/d3.js"></script>
+    <script type="text/javascript" src="assets/lib/nv.d3.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>JULES benchmarking report</h1>
+      <h2>{{ report.title }}</h2>
+    </header>
+    
+    <main>
+    {%- for section in report.sections %}
+      <section {% if section.skipped %}class="skipped"{% endif %}>
+        <header><h1>{{ section.title }}</h1></header>
+        
+        {%- for result in section.results %}
+          {% include result.template %}
+        {%- endfor %}
+        
+        <div class="clearfix"></div>
+      </section>
+    {%- endfor %}
+    </main>
+    
+    <script type="text/javascript" src="assets/js/plots.js"></script>
+  </body>
+</html>

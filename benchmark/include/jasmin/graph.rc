@@ -1,0 +1,31 @@
+###############################################################################
+## Configure the available jobs and their dependencies
+###############################################################################
+{%- set name_graphs = {
+    "fluxnet_bondville" : "fcm_make_mpi => fluxnet_bondville => jasmin_benchmark => jasmin_cleanup",
+    
+    "fluxnet_elsaler" : "fcm_make_mpi => fluxnet_elsaler => jasmin_benchmark => jasmin_cleanup",
+    
+    "fluxnet_fortpeck" : "fcm_make_mpi => fluxnet_fortpeck => jasmin_benchmark => jasmin_cleanup",
+    
+    "fluxnet_harvard" : "fcm_make_mpi => fluxnet_harvard => jasmin_benchmark => jasmin_cleanup",
+    
+    "fluxnet_hyytiala" : "fcm_make_mpi => fluxnet_hyytiala => jasmin_benchmark => jasmin_cleanup",
+    
+    "fluxnet_kaamanen" : "fcm_make_mpi => fluxnet_kaamanen => jasmin_benchmark => jasmin_cleanup",
+    
+    "fluxnet_morganmon" : "fcm_make_mpi => fluxnet_morganmon => jasmin_benchmark => jasmin_cleanup",
+    
+    "fluxnet_santa67" : "fcm_make_mpi => fluxnet_santa67 => jasmin_benchmark => jasmin_cleanup",
+    
+    "fluxnet_santa77" : "fcm_make_mpi => fluxnet_santa77 => jasmin_benchmark => jasmin_cleanup",
+    
+    "fluxnet_tharandt" : "fcm_make_mpi => fluxnet_tharandt => jasmin_benchmark => jasmin_cleanup",
+    
+    "gswp2_carbon_only" : "fcm_make_mpi => gswp2_carbon_only => jasmin_benchmark => jasmin_cleanup",
+    
+    "gswp2_closures" : "fcm_make_mpi => gswp2_closures => jasmin_benchmark => jasmin_cleanup",
+     
+    "gswp2_triff" : "fcm_make_mpi => gswp2_triff => jasmin_benchmark => jasmin_cleanup"
+}
+-%}

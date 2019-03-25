@@ -1,0 +1,31 @@
+###############################################################################
+## Configure the available jobs and their dependencies
+###############################################################################
+{%- set name_graphs = {
+    "fluxnet_bondville" : "fcm_make_noomp => fluxnet_bondville => benchmark => cleanup",
+    
+    "fluxnet_elsaler" : "fcm_make_noomp => fluxnet_elsaler => benchmark => cleanup",
+    
+    "fluxnet_fortpeck" : "fcm_make_noomp => fluxnet_fortpeck => benchmark => cleanup",
+    
+    "fluxnet_harvard" : "fcm_make_noomp => fluxnet_harvard => benchmark => cleanup",
+    
+    "fluxnet_hyytiala" : "fcm_make_noomp => fluxnet_hyytiala => benchmark => cleanup",
+    
+    "fluxnet_kaamanen" : "fcm_make_noomp => fluxnet_kaamanen => benchmark => cleanup",
+    
+    "fluxnet_morganmon" : "fcm_make_noomp => fluxnet_morganmon => benchmark => cleanup",
+    
+    "fluxnet_santa67" : "fcm_make_noomp => fluxnet_santa67 => benchmark => cleanup",
+    
+    "fluxnet_santa77" : "fcm_make_noomp => fluxnet_santa77 => benchmark => cleanup",
+    
+    "fluxnet_tharandt" : "fcm_make_noomp => fluxnet_tharandt => benchmark => cleanup",
+    
+    "gswp2_carbon_only" : "fcm_make_omp => gswp2_carbon_only => benchmark => cleanup",
+    
+    "gswp2_closures" : "fcm_make_omp => gswp2_closures => benchmark => cleanup",
+    
+    "gswp2_triff" : "fcm_make_omp => gswp2_triff => benchmark => cleanup"
+}
+-%}

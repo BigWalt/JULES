@@ -1,0 +1,26 @@
+# We want to make sure that the resource consuming jobs don't hog hosts
+#
+# In the research trustzone we only have queues for build and GSWP2 jobs on Linux.
+# Loobos, comparison and housekeeping jobs are not resource hungry, so we don't limit them.
+# On the research Cray, we assume PBS is doing a good job of managing resources.
+#
+# In the collaboration zone the extract tasks and the scripts run in the
+# background of the virtual machine. In an attempt to limit the impact of rose
+# stem on the MONSooN login nodes we limit the number of extract tasks and
+# script tasks.
+
+    [[queues]]
+{% if TRUSTZONE == 'research' %}
+# No more than 2 Linux build jobs at once (since these run on localhost)
+        [[[linux_build]]]
+            limit = 2
+            members = METO_LINUX_BUILD
+{% else %}
+        [[[monsoon_extracts]]]
+            limit = 1
+            members = METO_XC40_EXTRACT
+
+        [[[monsoon_scripts]]]
+            limit = 1
+            members = SCRIPTS
+{% endif %}

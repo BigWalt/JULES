@@ -1,0 +1,4 @@
+    [[queues]]
+        [[[fitzroy_run]]]
+            limit = 5
+            members = NIWA_FITZROY_LOOBOS, NIWA_FITZROY_GSWP2, NIWA_FITZROY_ERAINT, NIWA_FITZROY_IMOGEN

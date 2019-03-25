@@ -1,0 +1,158 @@
+body {
+    font-family : "DejaVu Sans", Helvetica, Arial, sans-serif;
+    color : #333333;
+    margin : 0px;
+    padding : 0px;
+    line-height : 1.4;
+}
+
+h1, h2, h3, h4, h5, h6, th {
+    color : #0c3762;
+    font-weight : bold;
+}
+
+h1 {
+    margin : 0px 0px 10px;
+}
+
+h2 {
+    margin : 0px;
+}
+
+body > header {
+    background-color : #efefef;
+    border-bottom : 20px solid #e0e0e0;
+    padding : 20px;
+    margin-bottom : 30px;
+}
+
+section {
+    padding : 0 20px;
+    margin-bottom : 30px;
+}
+
+section.skipped, section.skipped h1 {
+    color : #B8B8B8;
+}
+
+section > header {
+    border-bottom : 1px solid #C4C4C4;
+    margin-bottom : 10px;
+    padding : 0 10px;
+    cursor : pointer;
+}
+
+section.skipped > header {
+    border-bottom : 1px solid #B8B8B8;
+}
+
+section > header > h1:before {
+    content : "\2193\00a0";
+}
+
+section.collapsed > header > h1:before, section.skipped > header > h1:before {
+    content : "\2192\00a0";
+}
+
+section.skipped > header > h1:after {
+    content : "\00a0(skipped)";
+}
+
+section.collapsed article {
+    display : none;
+    visibility : hidden;
+}
+
+article {
+    border : 1px solid #C4C4C4;
+    float : left;
+    margin : 15px;
+    text-align : center;
+}
+
+article > header {
+    background-color : #efefef;
+    padding : 5px 20px;
+    border-bottom : 10px solid #e0e0e0;
+    margin-bottom : 10px;
+}
+
+article h1 {
+    margin : 0px;
+}
+
+table.statistics {
+    margin : 15px auto;
+    border-collapse : collapse;
+}
+
+table.statistics th, table.statistics td {
+    border : 1px solid #C4C4C4;
+    padding : 5px 10px;
+}
+
+table.statistics th {
+    background-color : #efefef;
+}
+
+table.statistics td.no-change {
+    background-color : #FFFF94;
+}
+
+table.statistics td.better {
+    background-color : #C4FFC4;
+}
+    
+table.statistics td.worse {
+    background-color : #FF7575;
+}
+
+figure.fluxnet-plot {
+    width : 550px;
+    height : 400px;
+}
+
+figure.fluxnet-plot .nv-axis.nv-x path.domain {
+    stroke-opacity: 0.75;
+}
+
+figure.lai-plot {
+    width : 650px;
+    height : 500px;
+}
+
+figure.lai-plot .y1.axis .nv-axis line, figure.lai-plot .x.axis .nv-axis line  {
+    stroke : #e5e5e5;
+}
+
+figure.lai-plot .y2.axis .nv-axis line {
+    stroke: none;
+    fill: none;
+}
+
+figure.frac-plot {
+    width : 550px;
+    height : 400px;
+}
+
+figure.closure-map {
+    border : 1px solid #efefef;
+    padding : 15px;
+}
+
+.clearfix:before, .clearfix:after {
+    content: '\0020';
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    zoom: 1;
+}

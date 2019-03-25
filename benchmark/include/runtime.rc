@@ -1,0 +1,78 @@
+###############################################################################
+## Common families
+###############################################################################
+
+# Family for all Linux jobs
+    [[LINUX]]
+        [[[job submission]]]
+            method = background
+
+# Family for extract jobs
+    [[EXTRACT]]
+        [[[remote]]]
+            host = {{ ROSE_ORIG_HOST }}
+        [[[environment]]]
+            ROSE_TASK_APP = fcm_make
+            JULES_SOURCE = {{ SOURCE_JULES }}
+            JULES_NETCDF = netcdf
+            JULES_REMOTE = remote
+
+# Family for build jobs
+# Accepts the environment variable BUILD_HOST, which is used as an argument to rose host-select
+    [[BUILD]]
+        inherit = None, EXTRACT
+        [[[remote]]]
+            host = $(rose host-select ${BUILD_HOST})
+            
+    [[EXTRACT_AND_BUILD]]
+        inherit = None, EXTRACT
+        [[[environment]]]
+            JULES_REMOTE = local
+
+# Family for compute jobs
+# Accepts the environment variable BUILD_NAME, which is the name of the build job to use executable from
+    [[COMPUTE]]
+        script = "mkdir -p output ; rose task-run --path= --path=share/${BUILD_NAME}/build/bin"
+            
+# Families with no specific configuration
+    [[FLUXNET]]
+    [[GSWP2]]
+
+
+################################################
+## Benchmarking and cleanup jobs
+################################################
+    [[BENCHMARK_FAMILY]]
+        script = """
+# Gather all the output into an output directory in the expected format
+rm -rf output
+mkdir -p output/fluxnet
+mkdir -p output/gswp2
+ln -s $CYLC_SUITE_WORK_DIR/1/fluxnet_*/output/* output/fluxnet
+ln -s $CYLC_SUITE_WORK_DIR/1/gswp2_*/output/* output/gswp2
+
+# Run the benchmarking, making use of the default values for output and report dirs
+python2.7 ${CYLC_SUITE_RUN_DIR}/source/python/benchmark.py --data-dir=$BENCHMARK_DATA_DIR "$CYLC_SUITE_NAME"
+"""
+
+    [[CLEANUP_FAMILY]]
+        # Remove potentially large files if the benchmarking completes successfully
+        # If the benchmarking doesn't complete successfully, they are left around to investigate
+        script = "rm -rf $CYLC_SUITE_WORK_DIR/1/*/output"
+
+    [[benchmark]] 
+        inherit=None, LINUX, BENCHMARK_FAMILY
+ 
+    [[cleanup]]
+        inherit=None, LINUX, CLEANUP_FAMILY           
+
+###############################################################################
+## Site-specific runtime definitions
+###############################################################################
+{%- if SITE == 'meto' %}
+%include 'include/meto/runtime.rc'
+{%- elif SITE == 'vm' %}
+%include 'include/vm/runtime.rc'
+{%- elif SITE == 'jasmin' %}
+%include 'include/jasmin/runtime.rc'
+{%- endif %}

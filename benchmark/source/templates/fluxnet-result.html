@@ -1,0 +1,27 @@
+<article class="fluxnet">
+  <header><h1>{{ result.site.name }}</h1></header>
+  
+  <table class="statistics">
+    <thead>
+      <tr>
+        <th>Diff. from observed mean</th>
+        <th>Correlation coeff.</th>
+        <th>RMSE</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="{{ result.stats.mean.status }}">
+          {{ "%.3G"|format(result.stats.mean.new) }} ({{ "%.3G"|format(result.stats.mean.old) }})
+        </td>
+        <td class="{{ result.stats.corr.status }}">
+          {{ "%.3G"|format(result.stats.corr.new) }} ({{ "%.3G"|format(result.stats.corr.old) }})
+        </td>
+        <td class="{{ result.stats.rmse.status }}">
+          {{ "%.3G"|format(result.stats.rmse.new) }} ({{ "%.3G"|format(result.stats.rmse.old) }})
+        </td>
+    </tbody>
+  </table>
+  
+  <figure class="fluxnet-plot" data-file="json/{{ result.file }}" data-ylab="{{ result.ylab }}"></figure>
+</article>

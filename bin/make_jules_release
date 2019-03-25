@@ -1,0 +1,96 @@
+#! /usr/bin/env bash
+
+set -eu
+
+VN=$1
+
+if [[ ! $VN ]]; then
+  echo "ERROR: No version given"
+  exit
+fi
+
+cwd=$PWD
+
+release_dir=$PWD/tarball/jules-$VN
+
+# Make a clean workspace directory
+[ -a workspace ] && rm -rf workspace
+mkdir workspace
+
+# Create the tarball directory if it doesn't exist
+[ -a tarball ] || mkdir tarball
+
+# If the release directory already exists, remove it
+[ -a $release_dir ] && rm -rf $release_dir
+
+
+
+# First export the JULES project into the release directory
+# No processing is required for this
+echo "Exporting JULES trunk at $VN..."
+fcm export -q fcm:jules.x_tr@$VN $release_dir
+
+
+# Export the JULES-DOC project into the workspace
+echo "Exporting JULES-DOC trunk at $VN..."
+fcm export -q fcm:jules_doc.x_tr@$VN workspace/docs_trunk
+
+# Copy the examples and loobos directories from the docs
+# project into the release directory
+echo "Copying examples and loobos to release directory..."
+cp -r workspace/docs_trunk/examples $release_dir
+cp -r workspace/docs_trunk/loobos $release_dir
+
+# Build the coding standards
+echo "Building coding standards..."
+cd workspace/docs_trunk/docs/coding_standards
+make --quiet html > /dev/null 2>&1
+
+# Build the user guide
+echo "Building user guide..."
+cd ../user_guide
+make --quiet html > /dev/null 2>&1
+
+# Make the docs directory for the release
+cd ..
+echo "Copying docs to tarball..."
+# Copy the upgrade procedure and technical docs pdfs
+mkdir $release_dir/docs
+cp *.pdf $release_dir/docs
+# Copy the coding standards and user guide
+cp -r user_guide/build/html $release_dir/docs/user_guide
+cp -r coding_standards/build/html $release_dir/docs/coding_standards
+
+cd $cwd
+
+# Create the tarball
+echo "Creating tarball..."
+tar -cz -f tarball/jules-$VN.tar.gz -C tarball jules-$VN
+
+
+# Upload the docs to github
+echo "Pushing user guide to github..."
+git clone git@github.com:jules-lsm/jules-lsm.github.io.git >/dev/null 2>&1
+cp -r workspace/docs_trunk/docs/user_guide/build/html jules-lsm.github.io/$VN
+# Add a link to the index
+ed jules-lsm.github.io/index.html > /dev/null 2>&1 <<EOF
+/<\/ul>/
+-
+a
+                <li><a href="$VN">$VN</a></li>
+.
+w
+q
+EOF
+cd jules-lsm.github.io
+git add -A >/dev/null 2>&1
+git commit -m "'Documentation for $VN'" >/dev/null 2>&1
+git push -u origin master >/dev/null 2>&1
+cd $cwd
+rm -rf jules-lsm.github.io
+
+
+# Clean up 
+echo "Cleaning up..."
+rm -rf workspace
+rm -rf $release_dir

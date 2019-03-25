@@ -1,0 +1,3 @@
+# Include Fitzroy definitions
+%include 'include/niwa/runtime-linux.rc'
+%include 'include/niwa/runtime-fitzroy-xlf.rc'

@@ -1,0 +1,30 @@
+###############################################################################
+## Imports
+###############################################################################
+%include 'include/niwa/graph-fitzroy-xlf.rc'
+
+###############################################################################
+## Name graphs
+###############################################################################
+{%- set name_graphs = {
+        "umdp3_check"       : "umdp3_checker",
+        "metadata_check"       : "metadata_checker",
+} %}
+{%- do name_graphs.update(name_graphs_fitzroy_xlf.items()) %}
+
+
+###############################################################################
+## Group definitions
+###############################################################################
+{%- set groups = {
+        "all" : ["fitzroy"],
+
+        "fitzroy" : ["fitzroy_xlf", "scripts"],
+        
+        "tutorial" : ["niwa_fitzroy_xlf_loobos_crops"],
+
+        "scripts"   : ["umdp3_check", "metadata_check"],
+
+    }
+%}
+{%- do groups.update(groups_fitzroy_xlf.items()) %}
